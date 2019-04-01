@@ -26,8 +26,9 @@ class Counter extends Component {
   } //render
 
   formatCount() {
-    const counter = this.state.count;
-    return counter === 0 ? "Zero" : counter;
+    const counter = this.state.count; //object destructuring
+    const x = <h1>Zero</h1>; // jsx expression example
+    return counter === 0 ? x : counter;
   }
 }
 
