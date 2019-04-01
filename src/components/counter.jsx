@@ -26,7 +26,8 @@ class Counter extends Component {
   } //render
 
   formatCount() {
-    return this.state.count === 0 ? "Zero" : this.state.count;
+    const counter = this.state.count;
+    return counter === 0 ? "Zero" : counter;
   }
 }
 
