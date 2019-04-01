@@ -4,20 +4,33 @@ class Counter extends Component {
   state = {
     count: 0
   };
+  counterStyles = {
+    fontSize: 10,
+    color: "yellow"
+  };
   render() {
     return (
       <div className="container">
         <div className="col-lg-6 Counter">
           <div className="input-group">
-            <span>{this.formatCount()}</span>
+            <span
+              style={this.counterStyles}
+              className="badge badge-primary m-2"
+            >
+              {this.formatCount()}
+            </span>
             <button className="btn btn-primary">Increment</button>
           </div>
           <div className="input-group">
-            <span>{this.formatCount()}</span>
+            <span style={{ fontSize: 20 }} className="badge badge-primary m-2">
+              {this.formatCount()}
+            </span>
             <button className="btn btn-primary">Increment</button>
           </div>
           <div className="input-group">
-            <span>{this.formatCount()}</span>
+            <span className="badge badge-primary m-2">
+              {this.formatCount()}
+            </span>
             <button className="btn btn-primary">Increment</button>
           </div>
         </div>
@@ -27,8 +40,7 @@ class Counter extends Component {
 
   formatCount() {
     const counter = this.state.count; //object destructuring
-    const x = <h1>Zero</h1>; // jsx expression example
-    return counter === 0 ? x : counter;
+    return counter === 0 ? "Zero" : counter;
   }
 }
 
