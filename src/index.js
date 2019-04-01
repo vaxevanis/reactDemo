@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'; // bootstrap library
 
-import App from './App';
+// import App from './App';
 import Counter from './components/counter';
 
 // import * as serviceWorker from './serviceWorker';
