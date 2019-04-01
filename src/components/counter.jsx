@@ -9,8 +9,7 @@ class Counter extends Component {
     color: "yellow"
   };
   render() {
-    let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    let classes = this.getBadgeClasses();
     return (
       <div className="container">
         <div className="col-lg-6 Counter">
@@ -30,6 +29,12 @@ class Counter extends Component {
       </div>
     );
   } //render
+
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
 
   formatCount() {
     const counter = this.state.count; //object destructuring
