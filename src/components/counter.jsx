@@ -2,35 +2,28 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0
+    count: 1
   };
   counterStyles = {
     fontSize: 10,
     color: "yellow"
   };
   render() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
     return (
       <div className="container">
         <div className="col-lg-6 Counter">
           <div className="input-group">
-            <span
-              style={this.counterStyles}
-              className="badge badge-primary m-2"
-            >
-              {this.formatCount()}
-            </span>
+            <span className={classes}>{this.formatCount()}</span>
             <button className="btn btn-primary">Increment</button>
           </div>
           <div className="input-group">
-            <span style={{ fontSize: 20 }} className="badge badge-primary m-2">
-              {this.formatCount()}
-            </span>
+            <span className={classes}>{this.formatCount()}</span>
             <button className="btn btn-primary">Increment</button>
           </div>
           <div className="input-group">
-            <span className="badge badge-primary m-2">
-              {this.formatCount()}
-            </span>
+            <span className={classes}>{this.formatCount()}</span>
             <button className="btn btn-primary">Increment</button>
           </div>
         </div>
