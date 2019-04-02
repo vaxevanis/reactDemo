@@ -31,9 +31,9 @@ class Counter extends Component {
   };
 
   //Helper Method for passing an argument to event handlers
-  doHandleIncrement = () => {
-    this.handleIncrement({ id: 1 });
-  };
+  // doHandleIncrement = product => {
+  //   this.handleIncrement(product);
+  // };
   render() {
     let classes = this.getBadgeClasses();
     return (
@@ -42,7 +42,7 @@ class Counter extends Component {
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
             <button
-              onClick={this.doHandleIncrement}
+              onClick={product => this.handleIncrement(product)}
               className="btn btn-primary"
             >
               Increment
