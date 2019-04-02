@@ -25,8 +25,14 @@ class Counter extends Component {
     );
   }
   //using arrow function to bind event handlers
-  handleIncrement = () => {
+  handleIncrement = product => {
+    console.log(product);
     this.setState({ count: this.state.count + 1 });
+  };
+
+  //Helper Method for passing an argument to event handlers
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
   };
   render() {
     let classes = this.getBadgeClasses();
@@ -35,7 +41,10 @@ class Counter extends Component {
         <div className="col-lg-6 Counter">
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className="btn btn-primary">
+            <button
+              onClick={this.doHandleIncrement}
+              className="btn btn-primary"
+            >
               Increment
             </button>
             {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
