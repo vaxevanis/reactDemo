@@ -3,14 +3,14 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 1,
-    tags: ["tag1", "tag2", "tag3"]
+    tags: []
   };
   counterStyles = {
     fontSize: 10,
     color: "yellow"
   };
   renderTags() {
-    if (this.state.tags.length === 0) return "no tags here";
+    // if (this.state.tags.length === 0) return "no tags here";
     return (
       <ul>
         {this.state.tags.map(tag => (
@@ -27,6 +27,8 @@ class Counter extends Component {
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
             <button className="btn btn-primary">Increment</button>
+            {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
+            {this.state.tags.length === 0 && "No tags Here"}
             {this.renderTags()}
           </div>
           <div className="input-group">
