@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     tags: []
   };
   counterStyles = {
@@ -26,7 +26,7 @@ class Counter extends Component {
   }
   //using arrow function to bind event handlers
   handleIncrement = () => {
-    console.log("clicked", this);
+    this.setState({ count: this.state.count + 1 });
   };
   render() {
     let classes = this.getBadgeClasses();
@@ -41,14 +41,6 @@ class Counter extends Component {
             {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
             {this.state.tags.length === 0 && "No tags Here"}
             {this.renderTags()}
-          </div>
-          <div className="input-group">
-            <span className={classes}>{this.formatCount()}</span>
-            <button className="btn btn-primary">Increment</button>
-          </div>
-          <div className="input-group">
-            <span className={classes}>{this.formatCount()}</span>
-            <button className="btn btn-primary">Increment</button>
           </div>
         </div>
       </div>
