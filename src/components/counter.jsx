@@ -9,10 +9,11 @@ class Counter extends Component {
     fontSize: 10,
     color: "yellow"
   };
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
   renderTags() {
     // if (this.state.tags.length === 0) return "no tags here";
     return (
@@ -23,9 +24,10 @@ class Counter extends Component {
       </ul>
     );
   }
-  handleIncrement() {
+  //using arrow function to bind event handlers
+  handleIncrement = () => {
     console.log("clicked", this);
-  }
+  };
   render() {
     let classes = this.getBadgeClasses();
     return (
