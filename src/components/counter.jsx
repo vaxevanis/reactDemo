@@ -9,6 +9,16 @@ class Counter extends Component {
     fontSize: 10,
     color: "yellow"
   };
+  renderTags() {
+    if (this.state.tags.length === 0) return "no tags here";
+    return (
+      <ul>
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     let classes = this.getBadgeClasses();
     return (
@@ -17,11 +27,7 @@ class Counter extends Component {
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
             <button className="btn btn-primary">Increment</button>
-            <ul>
-              {this.state.tags.map(tag => (
-                <li key={tag}>{tag}</li>
-              ))}
-            </ul>
+            {this.renderTags()}
           </div>
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
