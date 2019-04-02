@@ -48,8 +48,8 @@ class Counter extends Component {
               Increment
             </button>
             {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
-            {this.state.tags.length === 0 && "No tags Here"}
-            {this.renderTags()}
+            {/* {this.state.tags.length === 0 && "No tags Here"}
+            {this.renderTags()} */}
           </div>
         </div>
       </div>
