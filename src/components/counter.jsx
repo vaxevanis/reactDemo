@@ -24,9 +24,11 @@ class Counter extends Component {
   //   this.handleIncrement(product);
   // };
   render() {
+    console.log(this.props);
     let classes = this.getBadgeClasses();
     return (
       <div className="container">
+        {this.props.children}
         <div className="col-lg-6 Counter">
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
