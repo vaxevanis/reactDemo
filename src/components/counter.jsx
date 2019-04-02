@@ -9,6 +9,10 @@ class Counter extends Component {
     fontSize: 10,
     color: "yellow"
   };
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
   renderTags() {
     // if (this.state.tags.length === 0) return "no tags here";
     return (
@@ -19,6 +23,9 @@ class Counter extends Component {
       </ul>
     );
   }
+  handleIncrement() {
+    console.log("clicked", this);
+  }
   render() {
     let classes = this.getBadgeClasses();
     return (
@@ -26,7 +33,9 @@ class Counter extends Component {
         <div className="col-lg-6 Counter">
           <div className="input-group">
             <span className={classes}>{this.formatCount()}</span>
-            <button className="btn btn-primary">Increment</button>
+            <button onClick={this.handleIncrement} className="btn btn-primary">
+              Increment
+            </button>
             {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
             {this.state.tags.length === 0 && "No tags Here"}
             {this.renderTags()}
