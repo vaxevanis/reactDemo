@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Counter from "./counter";
+import Toggle from "./toggle";
 
 class Counters extends Component {
   state = {
@@ -10,14 +11,27 @@ class Counters extends Component {
       { id: 4, value: 1 }
     ]
   };
+  // Event Handler
+  handleDelete = () => {
+    console.log("handle delete");
+  };
+
   render() {
     return (
-      <div>
+      <div className="container">
         {this.state.counters.map(counter => (
-          <Counter key={counter.id} value={counter.value}>
+          <Counter
+            key={counter.id}
+            onDelete={this.handleDelete}
+            value={counter.value}
+            id={counter.id}
+          >
             <h4>Counter #{counter.id}</h4>
           </Counter>
         ))}
+        <div className="float-right">
+          <Toggle />
+        </div>
       </div>
     );
   }

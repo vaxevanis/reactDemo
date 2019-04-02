@@ -4,6 +4,7 @@ class Counter extends Component {
   state = {
     value: this.props.value
   };
+
   counterStyles = {
     fontSize: 10,
     color: "yellow"
@@ -24,10 +25,10 @@ class Counter extends Component {
   //   this.handleIncrement(product);
   // };
   render() {
-    console.log(this.props);
     let classes = this.getBadgeClasses();
+
     return (
-      <div className="container">
+      <div>
         {this.props.children}
         <div className="col-lg-6 Counter">
           <div className="input-group">
@@ -37,6 +38,13 @@ class Counter extends Component {
               className="btn btn-primary"
             >
               Increment
+            </button>
+            <button
+              //raising event
+              onClick={this.props.OnDelete}
+              className="btn btn-danger btn-sm m-2"
+            >
+              Delete
             </button>
           </div>
         </div>
@@ -52,7 +60,7 @@ class Counter extends Component {
 
   formatCount() {
     const counter = this.state.value; //object destructuring
-    return counter === 0 ? "Zero" : counter;
+    return counter === 0 ? 0 : counter;
   }
 }
 
