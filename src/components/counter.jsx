@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
-    tags: []
+    value: this.props.value
   };
   counterStyles = {
     fontSize: 10,
@@ -14,20 +13,10 @@ class Counter extends Component {
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
 
-  renderTags() {
-    // if (this.state.tags.length === 0) return "no tags here";
-    return (
-      <ul>
-        {this.state.tags.map(tag => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  }
   //using arrow function to bind event handlers
   handleIncrement = product => {
-    console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    // console.log(product);
+    this.setState({ value: this.state.value + 1 });
   };
 
   //Helper Method for passing an argument to event handlers
@@ -47,9 +36,6 @@ class Counter extends Component {
             >
               Increment
             </button>
-            {/* //conditional rendering (&& in js checks for truthy or falsy, text is always truthy)  */}
-            {/* {this.state.tags.length === 0 && "No tags Here"}
-            {this.renderTags()} */}
           </div>
         </div>
       </div>
@@ -58,12 +44,12 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const counter = this.state.count; //object destructuring
+    const counter = this.state.value; //object destructuring
     return counter === 0 ? "Zero" : counter;
   }
 }
