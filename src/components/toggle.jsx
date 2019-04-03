@@ -19,7 +19,7 @@ class Toggle extends React.Component {
   }
 
   render() {
-    let btnClass = this.getTheme();
+    let btnClass = this.getToggleStyle();
     return (
       <button
         onClick={event => {
@@ -32,7 +32,7 @@ class Toggle extends React.Component {
       </button>
     );
   }
-  getTheme() {
+  getToggleStyle() {
     let btnclass = "btn btn-";
     btnclass += this.state.isToggleOn ? "dark" : "secondary";
     return btnclass;

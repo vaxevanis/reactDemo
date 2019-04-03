@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className={themename}>
-        <NavBar />
+          <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
         <main className="container">
           <Counters
             counters={this.state.counters}
@@ -72,7 +72,7 @@ class App extends Component {
   }
   getThemeClasses() {
     let classes = "theme-";
-    classes += this.state.themeclass === 0 ? "white" : "dark";
+    classes += this.state.themeclass === 0 ? "light" : "dark";
     return classes;
   }
 }
