@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import NavBar from "./components/navbar";
+import Counters from "./components/counters";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Loading...
-          </p>
-        </header>
-      </div>
+      <React.Fragment>
+        <NavBar />
+        <main className="container">
+          <Counters />
+        </main>
+      </React.Fragment>
     );
   }
 }
 
-
-
 export default App;
-

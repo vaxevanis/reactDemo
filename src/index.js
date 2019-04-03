@@ -5,15 +5,13 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'; // bootstrap library
 import 'open-iconic/font/css/open-iconic-bootstrap.css'; //iconic fonts
 
-
-// import App from './App';
-import Counters from './components/counters';
+import App from './App';
 
 
 // import * as serviceWorker from './serviceWorker';
 const node = document.getElementById('root');
 
-ReactDOM.render( < Counters / > , node);
+ReactDOM.render( < App / > , node);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

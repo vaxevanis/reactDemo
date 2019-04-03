@@ -51,29 +51,27 @@ class Counters extends Component {
     let classes = this.getThemeClasses();
     return (
       <div className={classes}>
-        <div className="container">
-          <div className="form-group">
-            <button
-              onClick={this.handleReset}
-              className="btn btn-primary btn-sm m-2"
+        <div className="form-group">
+          <button
+            onClick={this.handleReset}
+            className="btn btn-primary btn-sm m-2"
+          >
+            reset
+          </button>
+          {this.state.counters.map(counter => (
+            <Counter
+              key={counter.id}
+              onDelete={this.handleDelete}
+              onIncrement={this.handleIncrement}
+              //includes all props of the object
+              counter={counter}
             >
-              reset
-            </button>
-            {this.state.counters.map(counter => (
-              <Counter
-                key={counter.id}
-                onDelete={this.handleDelete}
-                onIncrement={this.handleIncrement}
-                //includes all props of the object
-                counter={counter}
-              >
-                <h4 style={this.counterStyles}>Counter #{counter.id}</h4>
-              </Counter>
-            ))}
-          </div>
-          <div className="float-right">
-            <Toggle onClickbtn={this.handleSwitch} />
-          </div>
+              <h4 style={this.counterStyles}>Counter #{counter.id}</h4>
+            </Counter>
+          ))}
+        </div>
+        <div className="float-right">
+          <Toggle onClickbtn={this.handleSwitch} />
         </div>
       </div>
     );
