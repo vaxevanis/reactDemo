@@ -28,13 +28,13 @@ class Toggle extends React.Component {
         }}
         className={btnClass}
       >
-        {this.state.isToggleOn ? "On" : "OFF"}
+        {this.state.isToggleOn ? "ON" : "OFF"}
       </button>
     );
   }
   getTheme() {
     let btnclass = "btn btn-";
-    btnclass += this.state.isToggleOn ? "dark" : "default";
+    btnclass += this.state.isToggleOn ? "dark" : "secondary";
     return btnclass;
   }
 }

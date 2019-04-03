@@ -8,15 +8,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header.App-header {
-  background-color: rgb(11, 11, 68);
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+div[class*="theme-"]{
+  min-height: 100vh;
+}
 .form-group {
   position: relative;
   padding: 3rem;
