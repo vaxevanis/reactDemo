@@ -21,6 +21,13 @@ code {
   position: relative;
   padding: 3rem;
   margin: 1rem -15px 0;
-  border: solid #f8f9fa;
-  border-width: .2rem;
+}
+
+.theme-dark {
+  background: #222222;
+  color: #fff;
+}
+
+.theme-white {
+  background: initial;
 }

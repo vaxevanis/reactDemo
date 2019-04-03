@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+class Room extends Component {
   state = {
-    value: this.props.counter.value
+    value: this.props.room.value
   };
 
   // constructor() {
@@ -15,9 +15,6 @@ class Counter extends Component {
     // console.log(product);
     this.setState({ value: this.state.value + 1 });
   };
-  handleReset = product => {
-    this.setState({ value: 0 });
-  };
 
   //Helper Method for passing an argument to event handlers
   // doHandleIncrement = product => {
@@ -27,11 +24,19 @@ class Counter extends Component {
     let classes = this.getBadgeClasses();
 
     return (
-      <div>
-        {/* counter title */}
+      <div className="col-md-4">
+        {/* room title */}
         {this.props.children}
-        <div className="col-lg-6 Counter">
+        <div>
+          <img
+            src="https://picsum.photos/200/300"
+            alt=""
+            className="rounded "
+          />
+        </div>
+        <div className="rooms">
           <div className="input-group">
+            <span className="m-2">Nights</span>
             <span className={classes}>{this.formatCount()}</span>
             <button
               onClick={product => this.handleIncrement(product)}
@@ -40,14 +45,8 @@ class Counter extends Component {
               <span className="oi oi-plus" />
             </button>
             <button
-              onClick={product => this.handleReset(product)}
-              className="btn btn-primary btn-sm m-2"
-            >
-              reset
-            </button>
-            <button
               //raising event
-              onClick={() => this.props.onDelete(this.props.counter.id)}
+              onClick={() => this.props.onDelete(this.props.room.rm_code)}
               className="btn btn-danger btn-sm m-2"
             >
               <span className="oi oi-trash" />
@@ -70,4 +69,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default Room;

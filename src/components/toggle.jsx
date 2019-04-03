@@ -4,8 +4,7 @@ class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggleOn: true,
-      btnclass: 0
+      isToggleOn: true
     };
 
     // This binding is necessary to make `this` work in the callback
@@ -20,17 +19,23 @@ class Toggle extends React.Component {
   }
 
   render() {
-    let themeClass = this.getTheme();
+    let btnClass = this.getTheme();
     return (
-      <button onClick={this.handleClick} className={themeClass}>
+      <button
+        onClick={event => {
+          this.props.onClickbtn();
+          this.handleClick();
+        }}
+        className={btnClass}
+      >
         {this.state.isToggleOn ? "On" : "OFF"}
       </button>
     );
   }
   getTheme() {
-    let themeClass = "btn btn-";
-    themeClass += this.state.btnclass === 0 ? "success" : "danger";
-    return themeClass;
+    let btnclass = "btn btn-";
+    btnclass += this.state.isToggleOn ? "dark" : "default";
+    return btnclass;
   }
 }
 

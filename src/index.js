@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'; // bootstrap library
+import 'open-iconic/font/css/open-iconic-bootstrap.css'; //iconic fonts
+
 
 // import App from './App';
 import Counters from './components/counters';

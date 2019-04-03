@@ -1,25 +1,25 @@
 import React, { Component } from "react";
-import Counter from "./counter";
+import Room from "./room";
 import Toggle from "./toggle";
 
-class Counters extends Component {
+class Rooms extends Component {
   state = {
-    counters: [
-      { id: 1, value: 2 },
-      { id: 2, value: 4 },
-      { id: 3, value: 0 },
-      { id: 4, value: 1 }
+    rooms: [
+      { rm_code: "DBL", value: 2, name: "Double" },
+      { rm_code: "TRP", value: 4, name: "Triple" },
+      { rm_code: "SNG", value: 0, name: "Single" },
+      { rm_code: "DLX", value: 1, name: "Deluxe Suite" }
     ],
     themeclass: 0
   };
 
   // Event Handler
-  handleDelete = counterId => {
-    console.log("Event handler called", counterId);
+  handleDelete = roomcode => {
+    console.log("Event handler called", roomcode);
     //create new array and filter out the deleted element
-    const counters = this.state.counters.filter(c => c.id !== counterId);
+    const rooms = this.state.rooms.filter(c => c.rm_code !== roomcode);
     //update the state
-    this.setState({ counters: counters });
+    this.setState({ rooms: rooms });
   };
   handleSwitch = () => {
     console.log("switch handler called");
@@ -29,7 +29,7 @@ class Counters extends Component {
       ? this.setState({ themeclass: 1 })
       : this.setState({ themeclass: 0 });
   };
-  counterStyles = {
+  RmTitleStyles = {
     fontSize: 16,
     color: "grey"
   };
@@ -38,21 +38,23 @@ class Counters extends Component {
     return (
       <div className={classes}>
         <div className="container">
-          <div className="form-group">
-            {this.state.counters.map(counter => (
-              <Counter
-                key={counter.id}
+          <div className="form-group row">
+            {this.state.rooms.map(room => (
+              <Room
+                key={room.rm_code}
                 onDelete={this.handleDelete}
                 //includes all props of the object
-                counter={counter}
+                room={room}
               >
-                <h4 style={this.counterStyles}>Counter #{counter.id}</h4>
-              </Counter>
+                <h4 style={this.RmTitleStyles}>Room #{room.rm_code}</h4>
+              </Room>
             ))}
           </div>
-          <div className="float-right">
-            <Toggle onClickbtn={this.handleSwitch} />
-          </div>
+          <footer className="fixed-bottom">
+            <div className="float-right">
+              <Toggle onClickbtn={this.handleSwitch} status={this.themeclass} />
+            </div>
+          </footer>
         </div>
       </div>
     );
@@ -64,4 +66,4 @@ class Counters extends Component {
   }
 }
 
-export default Counters;
+export default Rooms;
