@@ -21,6 +21,20 @@ class Counters extends Component {
     //update the state
     this.setState({ counters: counters });
   };
+  handleReset = () => {
+    const counters = this.state.counters.map(c => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters: counters });
+  };
+  handleIncrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
+  };
   handleSwitch = () => {
     console.log("switch handler called");
     //create new array and filter out the deleted element
@@ -39,10 +53,17 @@ class Counters extends Component {
       <div className={classes}>
         <div className="container">
           <div className="form-group">
+            <button
+              onClick={this.handleReset}
+              className="btn btn-primary btn-sm m-2"
+            >
+              reset
+            </button>
             {this.state.counters.map(counter => (
               <Counter
                 key={counter.id}
                 onDelete={this.handleDelete}
+                onIncrement={this.handleIncrement}
                 //includes all props of the object
                 counter={counter}
               >
