@@ -5,10 +5,6 @@ class Counter extends Component {
     value: this.props.value
   };
 
-  counterStyles = {
-    fontSize: 10,
-    color: "yellow"
-  };
   // constructor() {
   //   super();
   //   this.handleIncrement = this.handleIncrement.bind(this);
@@ -29,6 +25,7 @@ class Counter extends Component {
 
     return (
       <div>
+        {/* counter title */}
         {this.props.children}
         <div className="col-lg-6 Counter">
           <div className="input-group">
@@ -41,7 +38,7 @@ class Counter extends Component {
             </button>
             <button
               //raising event
-              onClick={this.props.OnDelete}
+              onClick={() => this.props.onDelete(this.props.id)}
               className="btn btn-danger btn-sm m-2"
             >
               Delete

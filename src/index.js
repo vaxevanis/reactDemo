@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css'; // bootstrap library
 import Counters from './components/counters';
 
 
-
 // import * as serviceWorker from './serviceWorker';
 const node = document.getElementById('root');
 

@@ -11,26 +11,36 @@ class Counters extends Component {
       { id: 4, value: 1 }
     ]
   };
-  // Event Handler
-  handleDelete = () => {
-    console.log("handle delete");
-  };
 
+  // Event Handler
+  handleDelete = counterId => {
+    console.log("Event handler called", counterId);
+    //create new arraty and filter out the deleted element
+    const counters = this.state.counters.filter(c => c.id !== counterId);
+    //update the state
+    this.setState({ counters: counters });
+  };
+  counterStyles = {
+    fontSize: 16,
+    color: "grey"
+  };
   render() {
     return (
       <div className="container">
-        {this.state.counters.map(counter => (
-          <Counter
-            key={counter.id}
-            onDelete={this.handleDelete}
-            value={counter.value}
-            id={counter.id}
-          >
-            <h4>Counter #{counter.id}</h4>
-          </Counter>
-        ))}
-        <div className="float-right">
-          <Toggle />
+        <div className="form-group">
+          {this.state.counters.map(counter => (
+            <Counter
+              key={counter.id}
+              onDelete={this.handleDelete}
+              value={counter.value}
+              id={counter.id}
+            >
+              <h4 style={this.counterStyles}>Counter #{counter.id}</h4>
+            </Counter>
+          ))}
+          <div className="float-right">
+            <Toggle />
+          </div>
         </div>
       </div>
     );
