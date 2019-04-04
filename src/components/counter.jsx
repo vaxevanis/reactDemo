@@ -1,7 +1,25 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  //lifecycle: has updated
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      console.log('making ajax call');
+      //get new data from the server
+    }
+
+  }
+  //lifecycle: Will Unmount
+  componentWillUnmount() {
+    console.log('App-Ummount')
+    //here we should clean timer and listeners so we dont have memory leaks
+  }
   render() {
+    // lifecycle: render
+    console.log('Counter - Rendered'); 
+
     let classes = this.getBadgeClasses();
     return (
       <div>

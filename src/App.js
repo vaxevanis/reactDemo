@@ -16,7 +16,18 @@ class App extends Component {
     ],
     themeclass: 0
   };
-  
+  //lifecycle hooks constructor
+  constructor(props){
+    super(props);
+    console.log('App- contructor');
+  }
+
+  //lifecycle componentdidmount. Now is a good time to make our Ajax calls
+  componentDidMount() {
+    console.log('App - Mounted');
+  }
+
+
   // Event Handler
   handleDelete = counterId => {
     console.log("Event handler called", counterId);
@@ -48,6 +59,7 @@ class App extends Component {
       : this.setState({ themeclass: 0 });
   };
   render() {
+    console.log('App - Rendered'); 
     let themename = this.getThemeClasses();
     return (
       <React.Fragment>

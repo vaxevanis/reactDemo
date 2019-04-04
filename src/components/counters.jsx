@@ -6,6 +6,7 @@ class Counters extends Component {
     fontSize: 16,
     color: "grey"
   };
+
   render() {
     const { onReset, counters, onDelete, onIncrement } = this.props;
     return (
